@@ -46,6 +46,21 @@ var events = [
 	{name: "Reflorestamento", date: "15-02-2017 14:00", description: "Ajude-nos a plantar as mudas que você colaborou para criar...", program: "Reflorestamento", total: 150, local: "Praça J, Bairro Q, Campina Grande - PB"}
 ]
 
+var instituitions = [
+	{name: "Asilo ABC", description: "Asilo que acolhe velhinhos", leader: "Freira Ana", email: "asilo@email.com",
+		program: "elderly"
+	},
+	{name: "Adota JP", description: "Programa que cuida dos animais", leader: "Francisco de Asis", email: "adotaJP@email.com",	
+		program: "animals"
+	},
+	{name: "Orfanato JP", description: "Acolhe as crianças abandonadas", leader: "Joao de Deus", email: "adotaJP@email.com",
+		program: "child"
+	},
+	{name: "Plante uma arvore", description: "Colabore contra o aquecimento global", leader: "Mateus Adalberto", email: "planteJP@email.com",	
+		program: "reforestation"
+	}
+]
+
 function _isContainsUser(value) {
     for (i in users) {
     	if((users[i].card === value.card) || (users[i].email === value.email)) return true;
@@ -91,5 +106,9 @@ app.get('/programs', function(req, res) {
 });
 
 app.get('/events', function(req, res) {
+  res.json(events);
+});
+
+app.get('/instituitions', function(req, res) {
   res.json(events);
 });
