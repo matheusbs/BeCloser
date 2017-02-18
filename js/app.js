@@ -1,1 +1,1 @@
-angular.module("listaTelefonica", ["ui"]);
+angular.module("beCloser", ["ui"]);

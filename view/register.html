@@ -1,0 +1,36 @@
+<h2>Cadastro</h2>
+
+<div>
+	<form name="userForm">
+		<input class="form-control" type="text" ng-model="user.name" name="name" placeholder="Nome" ng-required="true" ng-minlength="5"/>
+		<input class="form-control" type="email" ng-model="user.email" name="email" placeholder="Email" ng-required="true"/>
+		<input class="form-control" type="text" ng-model="user.cardName" name="cardName" placeholder="Nome no cartão" ng-required="true"/>
+		<input class="form-control" type="text" ng-model="user.card" name="card" placeholder="Número do cartão" ng-pattern="/^\d{4}-\d{4}-\d{4}-\d{4}$/" ng-required="true"/>
+		<input class="form-control" type="text" ng-model="user.expire" name="expire" placeholder="Vencimento do cartão" ng-pattern="/^\d{2}/\d{2}$/" ng-required="true"/>
+		<input class="form-control" type="text" ng-model="user.verify" name="verify" placeholder="Código de Verificação" ng-pattern="/^\d{3}$/" ng-required="true"/>
+	</form>
+	<br>
+	<p>Selecione quais programas você deseja contribuir</p>
+
+	<div class="input-form">
+		<label class="checkbox-inline"><input ng-model="user.programs.child" style="float: none;margin-right: 10px;" type="checkbox" value="Crianças">Crianças</label>
+
+		<label class="checkbox-inline"><input ng-model="user.programs.animals" style="float: none;margin-right: 10px;" type="checkbox" value="Animais">Animais</label>
+
+		<label class="checkbox-inline"><input ng-model="user.programs.elderly" style="float: none;margin-right: 10px;" type="checkbox" value="Terceira Idade">Idosos</label>
+
+		<label class="checkbox-inline"><input ng-model="user.programs.reforestation" style="float: none;margin-right: 10px;" type="checkbox" value="Reflorestamento">Reflorestamento</label>
+	</div>
+
+	<div ng-show="userForm.card.$error.pattern" class="alert alert-danger">
+		O campo Número do cartão deve ter o formato XXXX-XXXX-XXXX-XXXX.
+	</div>
+	<div ng-show="userForm.expire.$error.pattern" class="alert alert-danger">
+		O campo Data de vencimento deve ter o formato MM/AA.
+	</div>
+	<div ng-show="!add"  class="alert alert-danger">{{error}}</div>
+	<br>
+
+	<button class="btn btn-primary btn-block" ng-click="addUser(user); changeView('register')">Cadastrar</button>
+	<!-- ng-disabled="userForm.$invalid"--> 
+</div>

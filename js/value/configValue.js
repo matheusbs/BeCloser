@@ -1,3 +1,3 @@
-angular.module("listaTelefonica").value("config", {
-	baseUrl: "http://localhost:3412"
+angular.module("beCloser").value("config", {
+	baseUrl: "http://192.168.1.96:3412"
 });

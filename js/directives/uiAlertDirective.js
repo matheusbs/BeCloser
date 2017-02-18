@@ -1,4 +1,4 @@
-angular.module("listaTelefonica").directive("uiAlert", function () {
+angular.module("beCloser").directive("uiAlert", function () {
 	return {
 		templateUrl: "view/alert.html",
 		replace: true,
