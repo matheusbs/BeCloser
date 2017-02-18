@@ -5,10 +5,30 @@ app.use(express.static(__dirname + '/public'));
 app.use(express.bodyParser());
 
 var users = [
-	{name: "User 1", email: "user1@email.com", cardName: "USER 1", card: "4444-4444-4444-4444", monthExpire: "10", yearExpire: "2020", verify: "443", 
-		programs: ["Terceira Idade","Crianças","Animais", "Reflorestamento"]},
-	{name: "User 2", email: "user2@email.com", cardName: "USER 2", card: "4444-4444-4444-4443", monthExpire: "10", yearExpire: "2021", verify: "442", programs: ["Terceira Idade"]},
-	{name: "User 3", email: "user3@email.com", cardName: "USER 3", card: "4444-4444-4444-4441", monthExpire: "10", yearExpire: "2022", verify: "440", programs: ["Crianças"]}
+	{name: "User 1", email: "user1@email.com", cardName: "USER 1", card: "4444-4444-4444-4444", expire: "10-20", verify: "443", 
+		programs: {
+			elderly: true,
+			child: true,
+			animals: true,
+			reforestation:true
+		}
+	},
+	{name: "User 2", email: "user2@email.com", cardName: "USER 2", card: "4444-4444-4444-4443", expire: "10-21", verify: "442", 
+		programs: {
+			elderly: true,
+			child: false,
+			animals: true,
+			reforestation:false
+		}
+	},
+	{name: "User 3", email: "user3@email.com", cardName: "USER 3", card: "4444-4444-4444-4441", expire: "10-22", verify: "440", 
+		programs: {
+			elderly: true,
+			child: true,
+			animals: true,
+			reforestation:false
+		}
+	}
 ];
 
 var programs = [
@@ -26,6 +46,13 @@ var events = [
 	{name: "Reflorestamento", date: "15-02-2017 14:00", description: "Ajude-nos a plantar as mudas que você colaborou para criar...", program: "Reflorestamento", total: 150, local: "Praça J, Bairro Q, Campina Grande - PB"}
 ]
 
+function _isContainsUser(value) {
+    for (i in users) {
+    	if((users[i].card === value.card) || (users[i].email === value.email)) return true;
+    }
+    return false;
+}
+
 app.listen(process.env.PORT || 3412);
 
 app.all('*', function(req, res, next) {
@@ -40,8 +67,23 @@ app.get('/users', function(req, res) {
 });
 
 app.post('/users', function(req, res) {
-  users.push(req.body);
-  res.json(true);
+  if(!_isContainsUser(req.body)) {
+  	users.push(req.body);
+  	res.json(true);
+  }else 
+  	res.json(false);
+});
+
+app.get('/user', function(req, res) {
+  //var found = false
+  for (i in users){
+  	if(users[i].card === req.body.card){
+  		res.json(users[i]);
+  		return;
+  	} 
+  }
+  res.json(false);
+  return;
 });
 
 app.get('/programs', function(req, res) {
