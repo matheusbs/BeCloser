@@ -1,3 +1,6 @@
+Authors: Adalberto Teixeira
+	Matheus Batista Silva
+
 To run the server backend: go to backend folder and run the service:
 	node beCloserBackend.js
 
