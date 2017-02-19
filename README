@@ -1,0 +1,5 @@
+To run the server backend: go to backend folder and run the service:
+	node beCloserBackend.js
+
+To run the application in index folder:
+	python -m SimpleHTTPServer 
