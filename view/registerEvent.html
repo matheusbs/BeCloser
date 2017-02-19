@@ -1,0 +1,26 @@
+<h2>Cadastro de Evento</h2>
+
+<div>
+	<form name="eventForm">
+		<input class="form-control" type="text" ng-model="event.name" name="name" placeholder="Nome" ng-required="true" ng-minlength="5"/>
+		<input class="form-control" type="email" ng-model="event.date" name="date" placeholder="Data" ng-required="true"/>
+		<input class="form-control" type="text" ng-model="event.description" name="description" placeholder="Descrição" ng-required="true"/>
+		<input class="form-control" type="text" ng-model="event.total" name="total" placeholder="Número total de ajudas" ng-required="true"/>
+		<input class="form-control" type="text" ng-model="event.local" name="local" placeholder="Endereço" ng-required="true"/>
+		<input class="form-control" type="text" ng-model="event.local" name="cnpj" placeholder="CNPJ" ng-required="true"/>
+	<br>
+	<p>Qual programa você está contribuindo</p>
+
+	<div class="input-form">
+		<label class="checkbox-inline"><input ng-model="user.programs.child" style="float: none;margin-right: 10px;" type="checkbox" value="Crianças">Crianças</label>
+
+		<label class="checkbox-inline"><input ng-model="user.programs.animals" style="float: none;margin-right: 10px;" type="checkbox" value="Animais">Animais</label>
+
+		<label class="checkbox-inline"><input ng-model="user.programs.elderly" style="float: none;margin-right: 10px;" type="checkbox" value="Terceira Idade">Idosos</label>
+
+		<label class="checkbox-inline"><input ng-model="user.programs.reforestation" style="float: none;margin-right: 10px;" type="checkbox" value="Reflorestamento">Reflorestamento</label>
+	</div>
+
+	<button class="btn btn-primary btn-block" ng-click="addEvent(event);">Cadastrar</button>
+	<!-- ng-disabled="userForm.$invalid"--> 
+</div>

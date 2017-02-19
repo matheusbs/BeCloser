@@ -25,12 +25,23 @@ angular.module("beCloser").factory("beCloserAPI", function ($http, config) {
 		return $http.post(config.baseUrl + "/instituitions", instituition);
 	};
 
+	var _getEvents = function () {
+		return $http.get(config.baseUrl + "/events");
+	};
+
+	var _saveEvent = function (instituition) {
+		return $http.post(config.baseUrl + "/events", event);
+	};
+
+
 	return {
 		getUsers: _getUsers,
 		saveUser: _saveUser,
 		getUser: _getUser,
 		getInstituitions: _getInstituitions,
 		saveInstituition: _saveInstituition,
-		getInstituition: _getInstituition
+		getInstituition: _getInstituition,
+		getEvents: _getEvents,
+		saveEvent: _saveEvent
 	};
 });
