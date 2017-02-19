@@ -6,7 +6,7 @@
 		<input class="form-control" type="email" ng-model="instituition.email" name="email" placeholder="Email" ng-required="true"/>
 		<input class="form-control" type="text" ng-model="instituition.description" name="description" placeholder="Descrição" ng-required="true" />
 		<input class="form-control" type="text" ng-model="instituition.leader" name="leader" placeholder="Responsável" ng-required="true" />
-		<input class="form-control" type="text" ng-model="instituition.cnpj" name="cnpj" placeholder="CNPJ" ng-required="true" />
+		<input class="form-control" type="text" ng-model="instituition.cnpj" name="cnpj" placeholder="CNPJ" ng-pattern="/^\d{2}.\d{3}.\d{3}/\d{4}-\d{2}$/" ng-required="true" />
 	</form>
 	<br>
 	<p>Selecione quais dos programas você atende</p>
@@ -19,7 +19,9 @@
   		<input type="radio" name="instituition.program" value="child"> Crianças<br>
 	</form>
 	</div>
-
+	<div ng-show="insituitionForm.cnpj.$error.pattern" class="alert alert-danger">
+		O campo CNPJ não está válido.
+	</div>
 	<div ng-show="!add"  class="alert alert-danger">{{error}}</div>
 	<br>
 

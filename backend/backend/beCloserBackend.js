@@ -116,6 +116,19 @@ app.get('/events', function(req, res) {
   res.json(events);
 });
 
+app.get('/event', function(req, res) {
+   for (i in events){
+  	if(users[i].cnpj === req.body.cnpj){
+  		res.json(events[i]);
+  		return;
+  	} 
+  }
+  res.json(false);
+  return;
+});
+});
+
+
 app.post('/events', function(req, res) {
   events.push(req.body);
   res.json(true);

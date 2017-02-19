@@ -7,7 +7,7 @@
 		<input class="form-control" type="text" ng-model="event.description" name="description" placeholder="Descrição" ng-required="true"/>
 		<input class="form-control" type="text" ng-model="event.total" name="total" placeholder="Número total de ajudas" ng-required="true"/>
 		<input class="form-control" type="text" ng-model="event.local" name="local" placeholder="Endereço" ng-required="true"/>
-		<input class="form-control" type="text" ng-model="event.cnpj" name="cnpj" placeholder="CNPJ" ng-required="true"/>
+		<input class="form-control" type="text" ng-model="event.cnpj" name="cnpj" placeholder="CNPJ" ng-pattern="/^\d{2}.\d{3}.\d{3}/\d{4}-\d{2}$/" ng-required="true" />
 	<br>
 	<p>Qual programa você está contribuindo</p>
 
@@ -20,7 +20,9 @@
 
 		<label class="checkbox-inline"><input ng-model="user.programs.reforestation" style="float: none;margin-right: 10px;" type="checkbox" value="Reflorestamento">Reflorestamento</label>
 	</div>
-
+	<div ng-show="eventForm.cnpj.$error.pattern" class="alert alert-danger">
+		O campo CNPJ não está válido.
+	</div>
 	<button class="btn btn-primary btn-block" ng-click="addEvent(event);">Cadastrar</button>
 	<!-- ng-disabled="userForm.$invalid"--> 
 </div>

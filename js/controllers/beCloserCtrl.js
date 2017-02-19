@@ -56,6 +56,11 @@ angular.module("beCloser").controller("beCloserCtrl", function ($scope, beCloser
 		});
 	};
 
+	$scope.getInstituition = function(instituition){
+		beCloserAPI.getUser(user).success(function(data){
+			console.log(data);
+		});
+	};
 
 	var loadEvents = function () {
 		beCloserAPI.getEvents().success(function (data) {
