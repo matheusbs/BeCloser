@@ -1,3 +1,3 @@
 angular.module("beCloser").value("config", {
-	baseUrl: "http://1localhost:3412"
+	baseUrl: "http://localhost:3412"
 });
