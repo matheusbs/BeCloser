@@ -29,7 +29,7 @@ angular.module("beCloser").factory("beCloserAPI", function ($http, config) {
 		return $http.get(config.baseUrl + "/events");
 	};
 
-	var _saveEvent = function (instituition) {
+	var _saveEvent = function (event) {
 		return $http.post(config.baseUrl + "/events", event);
 	};
 
