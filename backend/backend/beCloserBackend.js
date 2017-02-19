@@ -40,7 +40,7 @@ var programs = [
 
 // date: dd-mm-aaaa hh:mm - 24hr
 var events = [
-	{name: "Tarde no Asilo", date: "31-01-2017 14:00", description: "Venha visitar aqueles que precisam de atenção...", program: "Terceira Idade", total: 30, local: "Asilo A, Rua B, Bairro C, João Pesso - PB", cnpj: "111"},
+	{name: "Tarde no Asilo", date: "31-01-2017 14:00", description: "Venha visitar aqueles que precisam de atenção...", program: "Idosos", total: 30, local: "Asilo A, Rua B, Bairro C, João Pesso - PB", cnpj: "111"},
 	{name: "Volta as aulas do Orfanato", date: "05-02-2017 14:00", description: "Visita ao orfanato para dar boas vindas às crianças e incentivar no novo ano que inicia...", program: "Crianças", total: 25, local: "Orfanato D, Rua E, Bairro F, Recife - PE", cnpj: "112"},
 	{name: "Feira de Adoção", date: "07-02-2017 09:00", description: "Feira de adoção de animais recolhidos no abrigo de animais, venha conhecer os animais que você ajudou...", program: "Animais", total: 20, local: "Praça K, Rua L, Bairro M, João Pessoa - PB", cnpj: "113"},
 	{name: "Reflorestamento", date: "15-02-2017 14:00", description: "Ajude-nos a plantar as mudas que você colaborou para criar...", program: "Reflorestamento", total: 150, local: "Praça J, Bairro Q, Campina Grande - PB", cnpj: "114"}
@@ -126,7 +126,6 @@ app.get('/event', function(req, res) {
   res.json(false);
   return;
 });
-});
 
 
 app.post('/events', function(req, res) {
@@ -142,6 +141,7 @@ app.post('/instituitions', function(req, res) {
 if(!_isContainsInstituition(req.body)) {
   	instituitions.push(req.body);
   	res.json(true);
-  }else 
+  }else {
   	res.json(false);
+  }
 });
