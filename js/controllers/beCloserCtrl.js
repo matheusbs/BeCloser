@@ -1,9 +1,10 @@
 angular.module("beCloser").controller("beCloserCtrl", function ($scope, beCloserAPI) {
 	$scope.app = "be Closer";
 	$scope.users = [];
-	$scope.page = 'home';
+	$scope.page = 'registerInstituitions';
 	$scope.add = true;
 	$scope.error = '';
+	$scope.instituitions = [];
 	$scope.programs = ['Crianças', 'Idosos', 'Animais', 'Reflorestamento'];
 
 	var loadUsers = function () {
@@ -15,7 +16,6 @@ angular.module("beCloser").controller("beCloserCtrl", function ($scope, beCloser
 	};
 
 	$scope.login = function(user){
-		console.log("teste" + user);
 		beCloserAPI.getUser(user).success(function(data){
 			console.log(data);
 		});
@@ -32,6 +32,25 @@ angular.module("beCloser").controller("beCloserCtrl", function ($scope, beCloser
 			add = data;
 			if (data == false) {
 				$scope.error = "Usuário já existe";
+			}
+		});
+	};
+
+	var loadInstituitions = function () {
+		beCloserAPI.getInstituitions().success(function (data) {
+			$scope.instituitions = data;
+		}).error(function (data, status) {
+			$scope.error = "Não foi possível carregar os dados!";
+		});
+	};
+
+	$scope.addInstituition = function (instituition) {
+		beCloserAPI.saveInstituition(instituition).success(function (data) {
+			delete $scope.user;
+
+			add = data;
+			if (data == false) {
+				$scope.error = "Instituição já existe";
 			}
 		});
 	};

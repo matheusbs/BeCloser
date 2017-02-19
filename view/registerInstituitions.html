@@ -2,9 +2,9 @@
 
 <div>
 	<form name="instituitionForm">
-		<input class="form-control" type="text" ng-model="instituition.name" name="name" placeholder="Nome" ng-required="true" ng-minlength="5"/>
+		<input class="form-control" type="text" ng-model="instituition.name" name="name" placeholder="Nome" ng-required="true" />
 		<input class="form-control" type="email" ng-model="instituition.email" name="email" placeholder="Email" ng-required="true"/>
-		<input class="form-control" type="text" ng-model="instituition.description" name="description" placeholder="Descrição" ng-required="true" ng-minlength="20"/>
+		<input class="form-control" type="text" ng-model="instituition.description" name="description" placeholder="Descrição" ng-required="true" />
 		<input class="form-control" type="text" ng-model="instituition.leader" name="leader" placeholder="Responsável" ng-required="true" />
 		<input class="form-control" type="text" ng-model="instituition.cnpj" name="cnpj" placeholder="CNPJ" ng-required="true" />
 	</form>
@@ -23,6 +23,6 @@
 	<div ng-show="!add"  class="alert alert-danger">{{error}}</div>
 	<br>
 
-	<button class="btn btn-primary btn-block" ng-click="addInstituition(instituition); changeView('register')">Cadastrar</button>
+	<button class="btn btn-primary btn-block" ng-click="addInstituition(instituition)">Cadastrar</button>
 	<!-- ng-disabled="instituitionForm.$invalid"--> 
 </div>

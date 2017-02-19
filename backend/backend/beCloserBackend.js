@@ -48,22 +48,29 @@ var events = [
 
 var instituitions = [
 	{name: "Asilo ABC", description: "Asilo que acolhe velhinhos", leader: "Freira Ana", email: "asilo@email.com",
-		program: "elderly"
+		program: "elderly", cnpj: "11"
 	},
 	{name: "Adota JP", description: "Programa que cuida dos animais", leader: "Francisco de Asis", email: "adotaJP@email.com",	
-		program: "animals"
+		program: "animals", cnpj: "12"
 	},
 	{name: "Orfanato JP", description: "Acolhe as crianças abandonadas", leader: "Joao de Deus", email: "adotaJP@email.com",
-		program: "child"
+		program: "child", cnpj: "13"
 	},
 	{name: "Plante uma arvore", description: "Colabore contra o aquecimento global", leader: "Mateus Adalberto", email: "planteJP@email.com",	
-		program: "reforestation"
+		program: "reforestation", cnpj: "15"
 	}
 ]
 
 function _isContainsUser(value) {
     for (i in users) {
     	if((users[i].card === value.card) || (users[i].email === value.email)) return true;
+    }
+    return false;
+}
+
+function _isContainsInstituition(value) {
+    for (i in instituitions) {
+    	if(instituitions[i].cnpj === value.cnpj) return true;
     }
     return false;
 }
@@ -110,5 +117,13 @@ app.get('/events', function(req, res) {
 });
 
 app.get('/instituitions', function(req, res) {
-  res.json(events);
+  res.json(instituitions);
+});
+
+app.post('/instituitions', function(req, res) {
+if(!_isContainsInstituition(req.body)) {
+  	instituitions.push(req.body);
+  	res.json(true);
+  }else 
+  	res.json(false);
 });
