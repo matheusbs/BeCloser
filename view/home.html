@@ -1,64 +1,63 @@
+<img src="../img/logo.jpg" width="60%" height="60%" style="border:0;">
+
 
 <p>
 Com o intuito de aproximar os seus usuários a tomarem atitudes sociais, o BeCloser surgiu como um programa de integração, com usuários colaborando, apoiando eventos sociais, dando suporte a grupos de terceira idade, crianças, defesa dos animais e programas de reflorestamento.</p>
 
-<h2>Como funciona? </h2>
-<p>
-O usuário escolhe através do BeCloser quais causas ele deseja contribuir, automaticamente, através de uma porcentagem do que 
-a operadora recebe de cada compra feita com o cartão. 
+<br>
 
-Os valores arrecadados são repassados para realização de eventos buscando unir as pessoas para as causas propostas. Em especial, os colaboradores daqueles programas recebem informações e espaços para participarem dos eventos e sugerirem outras formas de apoio.
-</p>
+<div ng-show="page =='home'" id="/works">
+  <div ng-include="'view/works.html'"></div>
+</div>
 
-<script type="text/javascript">
-	$('#myModal').on('shown.bs.modal', function () {
-  		$('#myInput').focus();
-	});
-</script>
 
-<button class="btn btn-lg" type="button" data-toggle="modal" data-target="#exampleModal">Colabore</button>
-
-<!-- Button trigger modal -->
-<button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal">
-  Launch demo modal
-</button>
+<button type="button" class="btn btn-info btn-lg" data-toggle="modal" data-target="#colabore">Colabore</button>
 
 <!-- Modal -->
-<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-  <div class="modal-dialog" role="document">
+<div class="modal fade" id="colabore" role="dialog">
+  <div class="modal-dialog">
+    <!-- Modal content-->
     <div class="modal-content">
       <div class="modal-header">
-        <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
-        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-          <span aria-hidden="true">&times;</span>
-        </button>
+        <button type="button" class="close" data-dismiss="modal">&times;</button>
+        <h4 class="modal-title">Cadastro</h4>
       </div>
       <div class="modal-body">
-        ...
+        <div ng-include="'view/register.html'"></div>
       </div>
       <div class="modal-footer">
-        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-        <button type="button" class="btn btn-primary">Save changes</button>
+        <button type="button" class="btn btn-default" data-dismiss="modal">Fechar</button>
       </div>
     </div>
   </div>
 </div>
 
-<div class="input-group" style="position: inherit;
-	top:50%;
-	left:50%;
-	width:500px;
-	height:auto;">
-	<input type="text" class="form-control" ng-model="card" placeholder="Insira o número do seu cartão" ng-pattern="/^\d{4}-\d{4}-\d{4}-\d{4}$/" ng-required="true"/>
-	<span class="input-group-btn">
-		<button class="btn btn-default" type="button" ng-click="login(card)">Entrar</button>
-	</span>
-	<span class="input-group-btn">
-		<button class="btn btn-default" 
-		type="button" ng-click="changeView('register')">Criar cadastro</button>
-	</span>
+<!-- Trigger the modal with a button -->
+<button type="button" class="btn btn-info btn-lg" data-toggle="modal" data-target="#souColaborador">Sou colaborador</button>
 
-	<div ng-show="userForm.card.$error.pattern" class="alert alert-danger">
-		O campo Número do cartão deve ter o formato XXXX-XXXX-XXXX-XXXX.
-	</div>
+<!-- Modal de cadastro de usuário-->
+<div class="modal fade" id="souColaborador" role="dialog">
+  <div class="modal-dialog">
+    <!-- Modal content-->
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal">&times;</button>
+        <h4 class="modal-title">Login</h4>
+      </div>
+      <div class="modal-body">
+        <!-- Cadastro de usuário-->
+        <input type="text" class="form-control" ng-model="card" placeholder="Insira o número do seu cartão" ng-pattern="/^\d{4}-\d{4}-\d{4}-\d{4}$/" ng-required="true"/>
+        <span class="input-group-btn">
+          <button class="btn btn-primary" type="button" ng-click="login(card)">Entrar</button>
+        </span>
+
+        <div ng-show="userForm.card.$error.pattern" class="alert alert-danger">
+          O campo Número do cartão deve ter o formato XXXX-XXXX-XXXX-XXXX.
+        </div>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal">Fechar</button>
+      </div>
+    </div>
+  </div>
 </div>
