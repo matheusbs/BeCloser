@@ -1,5 +1,3 @@
-<h2>Cadastro de Evento</h2>
-
 <div>
 	<form name="eventForm">
 		<input class="form-control" type="text" ng-model="event.name" name="name" placeholder="Nome" ng-required="true"/>
@@ -12,17 +10,17 @@
 	<p>Qual programa você está contribuindo</p>
 
 	<div class="input-form">
-		<label class="checkbox-inline"><input ng-model="user.programs.child" style="float: none;margin-right: 10px;" type="checkbox" value="Crianças">Crianças</label>
+		<label class="radio-inline">
+			<input ng-model="event.program" style="float: none;margin-right: 10px;" type="radio" value="Crianças">Crianças</label>
 
-		<label class="checkbox-inline"><input ng-model="user.programs.animals" style="float: none;margin-right: 10px;" type="checkbox" value="Animais">Animais</label>
+		<label class="radio-inline"><input ng-model="event.program" style="float: none;margin-right: 10px;" type="radio" value="Animais">Animais</label>
 
-		<label class="checkbox-inline"><input ng-model="user.programs.elderly" style="float: none;margin-right: 10px;" type="checkbox" value="Terceira Idade">Idosos</label>
+		<label class="radio-inline"><input ng-model="event.program" style="float: none;margin-right: 10px;" type="radio" value="Terceira Idade">Idosos</label>
 
-		<label class="checkbox-inline"><input ng-model="user.programs.reforestation" style="float: none;margin-right: 10px;" type="checkbox" value="Reflorestamento">Reflorestamento</label>
+		<label class="radio-inline"><input ng-model="event.program" style="float: none;margin-right: 10px;"type="radio" value="Reflorestamento">Reflorestamento</label>
 	</div>
 	<div ng-show="eventForm.cnpj.$error.pattern" class="alert alert-danger">
 		O campo CNPJ não está válido.
 	</div>
-	<button class="btn btn-primary btn-block" ng-click="addEvent(event);">Cadastrar</button>
-	<!-- ng-disabled="userForm.$invalid"--> 
+	<button class="btn btn-primary" ng-click="addEvent(event);loadEvents();" data-dismiss="modal">Cadastrar</button>
 </div>

@@ -13,7 +13,7 @@ angular.module("beCloser").factory("beCloserAPI", function ($http, config) {
 	};
 
 	var _getInstituitions = function () {
-		return $http.get(config.baseUrl + "/users");
+		return $http.get(config.baseUrl + "/instituitions");
 	};
 
 	var _getInstituition = function (instituition) {

@@ -8,7 +8,7 @@ angular.module("beCloser").controller("beCloserCtrl", function ($scope, beCloser
 	$scope.programs = ['Crianças', 'Idosos', 'Animais', 'Reflorestamento'];
 	$scope.events = [];
 
-	var loadUsers = function () {
+	$scope.loadUsers = function () {
 		beCloserAPI.getUsers().success(function (data) {
 			$scope.users = data;
 		}).error(function (data, status) {
@@ -37,7 +37,7 @@ angular.module("beCloser").controller("beCloserCtrl", function ($scope, beCloser
 		});
 	};
 
-	var loadInstituitions = function () {
+	$scope.loadInstituitions = function () {
 		beCloserAPI.getInstituitions().success(function (data) {
 			$scope.instituitions = data;
 		}).error(function (data, status) {
@@ -62,7 +62,7 @@ angular.module("beCloser").controller("beCloserCtrl", function ($scope, beCloser
 		});
 	};
 
-	var loadEvents = function () {
+	$scope.loadEvents = function () {
 		beCloserAPI.getEvents().success(function (data) {
 			$scope.events = data;
 		}).error(function (data, status) {

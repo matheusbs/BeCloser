@@ -1,0 +1,37 @@
+<button type="button" class="btn btn-info btn-lg" data-toggle="modal" data-target="#instituicao">Cadastre sua instituição</button>
+
+<!-- Modal -->
+<div class="modal fade" id="instituicao" role="dialog">
+  <div class="modal-dialog">
+    <!-- Modal content-->
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal">&times;</button>
+        <h4 class="modal-title">Cadastro de instituição</h4>
+      </div>
+      <div class="modal-body">
+        <div ng-include="'view/registerInstituitions.html'"></div>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal">Fechar</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<table class="table table-striped">
+  <thead>
+    <tr>
+      <th style="text-align: center">Nome</th>
+      <th style="text-align: center">Descrição</th>
+      <th style="text-align: center">Responsável</th>
+    </tr>
+  </thead>
+  <tbody ng-repeat="instituition in instituitions">
+    <tr>
+      <td>{{instituition.name}}</td>
+      <td>{{instituition.description}}</td>
+      <td>{{instituition.leader}}</td>
+    </tr>
+  </tbody>
+</table>

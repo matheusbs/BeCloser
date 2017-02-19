@@ -33,25 +33,24 @@
 	<nav class="navbar navbar-inverse navbar-fixed-top">
       <div class="container-fluid">
         <div class="navbar-header">
-        	<a class="navbar-brand" href="#home">Início</a>
-        	<a class="navbar-brand" href="#works">Como Funciona</a>
+        	<a class="navbar-brand" href="#home" ng-click="changeView('home')">Início</a>
+        	<a class="navbar-brand" href="#works" ng-click="changeView('home')">Como Funciona</a>
+        	<a class="navbar-brand" href="#" ng-click="loadInstituitions(); changeView('registerInstituitions')">Instituições</a>
+        	<a class="navbar-brand" href="#" ng-click="loadEvents(); changeView('events')">Eventos</a>
         </div>
       </div>
     </nav>
 
-		<div ng-show="page =='home'" id="/home">
-			<div ng-include="'view/home.html'"></div>
-		</div>
-		<div ng-show="page =='events'">
-			<div ng-include="'view/events.html'"></div>
-		</div>
+	<div ng-show="page =='home'" id="/home">
+		<div ng-include="'view/home.html'"></div>
+	</div>
+	<div ng-show="page =='events'">
+		<div ng-include="'view/events.html'"></div>
+	</div>
 
-		<div ng-show="page =='registerInstituitions'">
-			<div ng-include="'view/registerInstituitions.html'"></div>
-		</div>
-		<div ng-show="page =='register'">
-			<div ng-include="'view/register.html'"></div>
-		</div>
+	<div ng-show="page =='registerInstituitions'">
+		<div ng-include="'view/institution.html'"></div>
+	</div>
 
 </body>
 </html>
